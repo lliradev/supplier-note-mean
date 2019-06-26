@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col s12 m12 l5">
+      <div class="card">
+        <div class="card-content">
+          <form #notificationForm="ngForm" (ngSubmit)="addNotification(notificationForm)">
+            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="notificationService.selectedNotification._id"
+              placeholder="Enter id">
+            <div class="row">
+              <div class="input-field col s12">
+                <input type="text" name="notification_type" #notification_type="ngModel"
+                  [(ngModel)]="notificationService.selectedNotification.notification_type"
+                  placeholder="Enter the notification type">
+              </div>
+              <div class="input-field col s12">
+                <input type="date" name="date" #date="ngModel"
+                  [(ngModel)]="notificationService.selectedNotification.date"
+                  placeholder="Enter the date of notification">
+              </div>
+              <div class="input-field col s12">
+                <input type="text" name="recordatory" #recordatory="ngModel"
+                  [(ngModel)]="notificationService.selectedNotification.recordatory"
+                  placeholder="Enter your recordatorio">
+              </div>
+
+              <div class="card-action">
+                <div class="input-field col s12">
+                  <button class="btn" style="margin-left: 2p">Save</button>
+                  <!--Limpiar Formulario-->
+                  <button class="btn right" (click)="resetForm(notificationForm)">Clean</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col s12 m12 l7">
+      <table class="responsive-table highlight">
+        <thead>
+          <th>Notification Type</th>
+          <th>Date/Fecha</th>
+          <th>Recordatory</th>
+          <th>Operations</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let notification of notificationService.notifications">
+            <td>{{ notification.notification_type }}</td>
+            <td>{{ notification.date | date: "dd.MM.y"}}</td>
+            <td>{{ notification.recordatory }}</td>
+            <td>
+              <a (click)='editNotification(notification)'>
+                <i class='material-icons'>edit</i>
+              </a>
+            </td>
+            <td>
+              <a (click)='deleteNotification(notification._id)'>
+                <i class='material-icons'>delete</i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

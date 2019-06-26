@@ -1,0 +1,14 @@
+npm init --yes
+npm i express
+npm i nodemon -D
+npm i morgan
+npm i mongoose
+
+// Remove
+npm remove <name>
+
+// Server frontend
+--Install Angular:
+npm i -g @angular/cli
+
+npm i cors

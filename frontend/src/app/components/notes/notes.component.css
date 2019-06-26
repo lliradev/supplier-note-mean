@@ -1,0 +1,33 @@
+table th {
+    background-color: #26A69A;
+    text-align: center;
+    color: white;
+}
+
+table td {
+    text-align: center;
+}
+
+.my-pagination /deep/ .ngx-pagination .current {
+    background: #ee6e73;
+    /* 673ab7 */
+}
+
+/*#table{
+    border-collapse: collapse;
+}
+#table td, #table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+#table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #26A69A;
+    text-align: center;
+    color: white;
+}
+#table tbody {
+    text-align: justify;
+}*/

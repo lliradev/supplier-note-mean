@@ -1,0 +1,98 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col s12 m12 l4">
+      <div class="card">
+        <div class="card-content">
+          <form #saleForm="ngForm" (ngSubmit)="addSale(saleForm)">
+            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="saleService.selectedSale._id"
+              placeholder="Enter id">
+            <b>Fecha</b>
+            <div class="row">
+
+              <div class="input-field col s12">
+                <input type="date" id="dateSell" name="dateSell" #dateSell="ngModel"
+                  [(ngModel)]="saleService.selectedSale.dateSell" placeholder="Ingresa la Fecha">
+
+              </div>
+
+              <div class="input-field col s12">
+                <b>No. de Mesa</b>
+                <input type="text" name="table" #table="ngModel" [(ngModel)]="saleService.selectedSale.table"
+                  placeholder="Ingresa el numero de mesa">
+              </div>
+
+              <div class="input-field col s12">
+                <b>Platillo/Bebida</b>
+                <input type="text" name="dish_drink" #dish_drink="ngModel"
+                  [(ngModel)]="saleService.selectedSale.dish_drink" placeholder="Ingresa el Platillo o Bebida">
+              </div>
+
+              <div class="input-field col s12">
+                <b>Cantidad</b>
+                <input type="text" name="quantity" #quantity="ngModel" [(ngModel)]="saleService.selectedSale.quantity"
+                  placeholder="Ingresa la cantidad">
+              </div>
+
+              <div class="input-field col s12">
+                <b>Monto a Pagar $</b>
+                <input type="text" name="toPay" #toPay="ngModel" [(ngModel)]="saleService.selectedSale.toPay"
+                  placeholder="Ingresa el monto a pagar">
+              </div>
+
+              <b>Tipo de Pago</b>
+              <select class="browser-default" name="payType" #payType="ngModel"
+                [(ngModel)]="saleService.selectedSale.payType">
+                <option value="" disabled selected>Elige una opción</option>
+                <option value="Tarjeta de Crédito/Débito">Tarjeta de Crédito/Débito</option>
+                <option value="Efectivo">Efectivo</option>
+              </select>
+              <div class="card-action">
+                <div class="input-field col s12">
+                  <button class="btn" style="margin-left: 2p">Save</button>
+                  <!--Limpiar Formulario-->
+                  <button class="btn right" (click)="resetForm(saleForm)">Clean</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col s12 m12 l8">
+      <table class="responsive-table highlight">
+        <thead>
+          <th>Fecha Venta</th>
+          <th>No. Mesa</th>
+          <th>Platillo/Bebida</th>
+          <th>Cantidad</th>
+          <th>Monto a Pagar</th>
+          <th>Tipo Pago</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let sale of saleService.sales">
+            <script>
+
+            </script>
+            <td>{{ sale.dateSell | date: "dd/MM/y" }}</td>
+            <td>{{ sale.table }}</td>
+            <td>{{ sale.dish_drink }}</td>
+            <td>{{ sale.quantity }}</td>
+            <td>{{ sale.toPay }}</td>
+            <td>{{ sale.payType }}</td>
+            <td>
+              <a (click)='editSale(sale)'>
+                <i class='material-icons'>edit</i>
+              </a>
+            </td>
+            <td>
+              <a (click)='deleteSale(sale._id)'>
+                <i class='material-icons'>delete</i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

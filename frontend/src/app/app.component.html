@@ -1,0 +1,132 @@
+<!-- Navbar deep-purple -->
+<div class="navbar-fixed">
+    <nav>
+        <div class="nav-wrapper container">
+            <a routerLink="/" class="brand-logo">SAM 13</a>
+            <a href="" data-target="menu-responsive" class="sidenav-trigger">
+                <i class="material-icons">menu</i>
+            </a>
+
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li routerLinkActive="active current">
+                    <a routerLink="/suppliers">Suppliers</a>
+                </li>
+                <li routerLinkActive="active current">
+                    <a routerLink="/notes">Notes</a>
+                </li>
+                <li routerLinkActive="active current">
+                    <a routerLink="/external-expenses">External</a>
+                </li>
+                <li routerLinkActive="active current">
+                    <a routerLink="/pending-invoice">Pending</a>
+                </li>
+                <li routerLinkActive="active current">
+                    <a routerLink="/notifications">Notification</a>
+                </li>
+                <li routerLinkActive="active current">
+                    <a routerLink="/sales">Sales</a>
+                </li>
+                <li routerLinkActive="active current">
+                    <a routerLink="/schedules">Schedule</a>
+                </li>
+                <li routerLinkActive="active current">
+                    <a routerLink="/users">User</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<!-- ul for sidenav responsive -->
+<ul class="sidenav" id="menu-responsive">
+    <li routerLinkActive="active current">
+        <a routerLink="/suppliers" class="sidenav-close">
+            <i class="material-icons">drive_eta</i>
+            Suppliers
+        </a>
+    </li>
+    <li routerLinkActive="active current">
+        <a routerLink="/notes" class="sidenav-close">
+            <i class="material-icons">note</i>
+            Notes
+        </a>
+    </li>
+    <li routerLinkActive="active current">
+        <a routerLink="/external-expenses" class="sidenav-close">
+            <i class="material-icons">credit_card</i>
+            External
+        </a>
+    </li>
+    <li routerLinkActive="active current">
+        <a routerLink="/pending-invoice" class="sidenav-close">
+            <i class="material-icons">import_contacts</i>
+            Pending
+        </a>
+    </li>
+    <li routerLinkActive="active current">
+        <a routerLink="/notifications" class="sidenav-close">
+            <i class="material-icons">notifications</i>
+            Notification
+        </a>
+    </li>
+    <li routerLinkActive="active current">
+        <a routerLink="/sales" class="sidenav-close">
+            <i class="material-icons">business_center</i>
+            Sales
+        </a>
+    </li>
+    <li routerLinkActive="active current">
+        <a routerLink="/schedules" class="sidenav-close">
+            <i class="material-icons">schedule</i>
+            Schedule
+        </a>
+    </li>
+    <li routerLinkActive="active current">
+        <a routerLink="/users" class="sidenav-close">
+            <i class="material-icons">person_pin</i>
+            User
+        </a>
+    </li>
+</ul>
+
+<!--<mat-toolbar color="primary">My App</mat-toolbar>
+
+<mat-drawer-container class="example-container">
+    <mat-drawer mode="side" opened>
+        <ul class="">
+            <li routerLinkActive="active current">
+                <a routerLink="/suppliers">Suppliers</a>
+            </li>
+            <li routerLinkActive="active current">
+                <a routerLink="/notes">Notes</a>
+            </li>
+            <li routerLinkActive="active current">
+                <a routerLink="/external-expenses">External</a>
+            </li>
+            <li routerLinkActive="active current">
+                <a routerLink="/pending-invoice">Pending</a>
+            </li>
+            <li routerLinkActive="active current">
+                <a routerLink="/notifications">Notification</a>
+            </li>
+            <li routerLinkActive="active current">
+                <a routerLink="/sales">Sales</a>
+            </li>
+            <li routerLinkActive="active current">
+                <a routerLink="/schedules">Schedule</a>
+            </li>
+            <li routerLinkActive="active current">
+                <a routerLink="/users">User</a>
+            </li>
+        </ul>
+
+    </mat-drawer>
+
+    <mat-drawer-content>
+        
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+</mat-drawer-container>-->
+
+<!-- Router -->
+<router-outlet></router-outlet>

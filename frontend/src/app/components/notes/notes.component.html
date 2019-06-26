@@ -1,0 +1,93 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col s12 m12 l4">
+      <div class="card">
+        <div class="card-action teal lighten-1 white-text">
+          <h5 class="center">Gastos Internos</h5>
+        </div>
+        <div class="card-content">
+
+          <form #noteForm="ngForm" (ngSubmit)="addNote(noteForm)">
+            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="noteService.selectedNote._id">
+
+            <div class="row">
+              <label>Tipo de gasto</label>
+              <select class="browser-default" name="type" #type="ngModel" [(ngModel)]="noteService.selectedNote.type">
+                <option value="" disabled selected>Elige una opción</option>
+                <option value="Aumento de salario">Aumento de salario</option>
+                <option value="Gas">Gas</option>
+                <option value="Agua">Agua</option>
+                <option value="Internet">Internet</option>
+              </select>
+
+              <div class="input-field col-s12">
+                <input type="text" name="responsible" #responsible="ngModel"
+                  [(ngModel)]="noteService.selectedNote.responsible" placeholder="Ingrese responsable" required>
+              </div>
+
+              <div class="input-field col-s12">
+                <input type="number" name="amount" #amount="ngModel" [(ngModel)]="noteService.selectedNote.amount"
+                  placeholder="Ingrese monto" required>
+              </div>
+              <div class="input-field col-s12">
+                <textarea name="reason" #reason="ngModel" [(ngModel)]="noteService.selectedNote.reason" cols="30"
+                  rows="20" class="materialize-textarea" placeholder="Escriba el motivo" required></textarea>
+              </div>
+              <div class="card-action">
+                <div class="input-field col-s12">
+                  <button class="btn left" style="margin-left: 2px;">
+                    <i class="material-icons right">save</i>
+                    Save
+                  </button>
+                  <button class="btn right red darken-4" (click)="resetForm(noteForm)">
+                    <i class="material-icons right">clear</i>
+                    Clear
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col s12 m12 l8">
+      <div class="input-field">
+        <i class="material-icons prefix">search</i>
+        <input type="text" placeholder="Buscar..." name="filterNote" [(ngModel)]="filterNotes">
+      </div>
+
+      <table class="card responsive-table">
+        <thead>
+          <tr>
+            <th>Tipo de gasto</th>
+            <th>Responsable</th>
+            <th>Monto</th>
+            <th>Operations</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let note of noteService.notes | filter:filterNotes | 
+          paginate: {itemsPerPage: 5, currentPage: p}">
+            <td>{{ note.type }}</td>
+            <td>{{ note.responsible }}</td>
+            <td>{{ note.amount | currency }}</td>
+            <td>
+              <a (click)="editNote(note)">
+                <i class="material-icons">edit</i>
+              </a>
+              <a (click)="deleteNote(note._id)">
+                <i class="material-icons">delete</i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <pagination-controls class="my-pagination" (pageChange)="p = $event">
+      </pagination-controls>
+    </div>
+  </div>
+</div>
